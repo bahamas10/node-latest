@@ -1,0 +1,28 @@
+{
+  "name": "latest",
+  "description": "Quickly determine the latest available version of a package in npm",
+  "version": "0.0.0",
+  "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahamas10/node-latest.git"
+  },
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "dependencies": {
+    "npm": "~1.1.59"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "keywords": [
+    "latest",
+    "npm",
+    "version",
+    "up-to-date"
+  ]
+}
