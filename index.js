@@ -1,4 +1,5 @@
-var npm = require('npm');
+var npm = require('npm'),
+    util = require('util');
 
 /**
  * get the latest version of a package
@@ -23,20 +24,20 @@ module.exports = function(name, cb) {
  *
  * Optionally, give true as a second argument to exit after writing the message
  */
-module.exports.check_update = function (package, exit) {
+module.exports.check_update = function (package, cb) {
   module.exports(package.name, function(err, v) {
-    var ret = 0;
+    var s, ret = 0;
     if (err) {
-      console.warn(">>> Couldn't determine latest version");
+      s = ">>> Couldn't determine latest version";
       ret = 2;
     } else if (v !== package.version) {
-      console.warn('>>> You are running version %s, a newer version %s is available', package.version, v);
-      console.warn('>>> Consider updating with: npm update -g %s', package.name);
+      s = util.format('>>> You are running version %s, a newer version %s is available\n', package.version, v);
+      s += util.format('>>> Consider updating with: npm update -g %s', package.name);
       ret = 1;
     } else {
-      console.log('You are running the latest version %s', package.version);
+      s = util.format('You are running the latest version %s', package.version);
       ret = 0;
     }
-    if (exit) process.exit(ret);
+    cb(ret, s);
   });
 };

@@ -36,23 +36,26 @@ yields
 404 Not Found: i-hope-this-package-never-exists
 ```
 
+### Convenience Function
+
 Check for upgrades in an app
 
 ``` js
 var latest = require('latest'),
     p = require('./package.json');
 
-latest(p.name, function(err, v) {
-  if (err) {
-    console.warn("Couldn't determine latest version");
-  } else if (v !== p.version) {
-    console.warn('You are running version %s, a newer version %s is available', p.version, v);
-    console.warn('Consider updating with: npm update %s', p.name);
-  } else {
-    console.log('You are running the latest version!');
-  }
+latest.check_update(p, function(ret, message) {
+  console.log(message);
+  process.exit(ret);
 });
 ```
+
+#### check\_update(package-json-obj, cb(ret, message))
+
+A convenience method that will check for newer versions of a module in npm given a
+`package.json` object as the first argument.
+
+The callback fires with a return code suitable for exiting with, and a message to print
 
 Install
 ------
