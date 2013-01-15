@@ -41,16 +41,16 @@ yields
 Check for upgrades in an app
 
 ``` js
-var latest = require('latest'),
-    p = require('./package.json');
+var latest = require('latest');
+var p = require('./package.json');
 
-latest.check_update(p, function(ret, message) {
+latest.checkupdate(p, function(ret, message) {
   console.log(message);
   process.exit(ret);
 });
 ```
 
-#### check\_update(package-json-obj, cb(ret, message))
+#### checkupdate(package-json-obj, cb(ret, message))
 
 A convenience method that will check for newer versions of a module in npm given a
 `package.json` object as the first argument.

@@ -1,7 +1,7 @@
-var latest = require('../'),
-    p = require('../package.json');
+var latest = require('../');
+var p = require('../package.json');
 
-latest.check_update(p, function(ret, msg) {
+latest.checkupdate(p, function(ret, msg) {
   console.log(msg);
   process.exit(ret);
 });
