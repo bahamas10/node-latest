@@ -8,9 +8,8 @@ module.exports.checkupdate = checkupdate;
  * get the latest version of a package
  */
 function latest(name, cb) {
-  npm.load({name: name}, function(err) {
+  npm.load({name: name, loglevel: 'silent'}, function(err) {
     if (err) return cb(err);
-    npm.set('loglevel', 'silent', function() {});
     npm.commands.show([name, 'versions'], true, function(err, data) {
       if (err) return cb(err);
       var versions = data[Object.keys(data)[0]].versions;
