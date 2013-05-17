@@ -1,9 +1,11 @@
 {
   "name": "latest",
   "description": "Determine the latest available version of a package in npm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
-  "contributors": [],
+  "contributors": [
+    "shama (https://github.com/shama)"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/bahamas10/node-latest.git"
