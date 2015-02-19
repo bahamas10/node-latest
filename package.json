@@ -1,7 +1,7 @@
 {
   "name": "latest",
   "description": "Determine the latest available version of a package in npm",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
   "contributors": [
     "shama (https://github.com/shama)"
