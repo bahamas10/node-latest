@@ -15,11 +15,8 @@ var latest = require('latest');
 
 latest('autocast', function(err, v) {
   console.log(v);
+  // => "0.0.3"
 });
-```
-yields
-```
-0.0.3
 ```
 
 Errors passed directly from npm
@@ -28,12 +25,9 @@ Errors passed directly from npm
 var latest = require('latest');
 
 latest('i-hope-this-package-never-exists', function(err, v) {
-  if (err) console.error(err.message);
+  console.error(err.message);
+  // => "404 Not Found: i-hope-this-package-never-exists"
 });
-```
-yields
-```
-404 Not Found: i-hope-this-package-never-exists
 ```
 
 ### Convenience Function
@@ -46,7 +40,9 @@ var p = require('./package.json');
 
 latest.checkupdate(p, function(ret, message) {
   console.log(message);
+  // => "you are running the latest version 0.0.1"
   process.exit(ret);
+  // => 0
 });
 ```
 
@@ -57,10 +53,21 @@ A convenience method that will check for newer versions of a module in npm given
 
 The callback fires with a return code suitable for exiting with, and a message to print
 
+Command Line
+------------
+
+```
+$ latest latest json npm notfound
+latest: 0.1.2
+json: 9.0.3
+npm: 2.6.0
+notfound: Error: 404 Not Found: notfound
+```
+
 Install
 ------
 
-    npm install latest
+    npm install [-g] latest
 
 Tests
 -----

@@ -10,11 +10,14 @@
     "type": "git",
     "url": "git://github.com/bahamas10/node-latest.git"
   },
+  "bin": {
+    "latest": "./bin/latest.js"
+  },
   "scripts": {
     "test": "node tests/test.js"
   },
   "dependencies": {
-    "npm": "~1.3.4"
+    "npm": "^2.5.1"
   },
   "devDependencies": {},
   "optionalDependencies": {},
